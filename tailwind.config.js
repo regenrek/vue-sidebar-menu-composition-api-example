@@ -6,9 +6,14 @@
 */
 module.exports = {
   theme: {
-    colors: {
-      backdrop: 'rgba(19, 15, 64, .4)',
-      mjgray: '#ececec'
+    extend: {
+      colors: {
+        backdrop: 'rgba(19, 15, 64, .4)',
+        mjgray: '#ececec'
+      },
+      zIndex: {
+        999: '999'
+      }
     }
   },
   variants: {},

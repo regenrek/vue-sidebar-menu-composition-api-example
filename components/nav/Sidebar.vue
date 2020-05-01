@@ -28,10 +28,14 @@ export default defineComponent({
   setup () {
     const { active, toggle } = useToggle()
     const isPanelOpen = ref(false)
+    const closeSidebarPanel = () => {
+
+    }
     return {
       active,
       toggle,
-      isPanelOpen
+      isPanelOpen,
+      closeSidebarPanel
     }
   }
 })
