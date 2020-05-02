@@ -1,11 +1,17 @@
-import { ref } from '@vue/composition-api'
+import { reactive, toRefs } from '@vue/composition-api'
 
 export function useToggle () {
-  const active = ref(false)
+  const state = reactive({
+    active: false
+  })
 
   const toggle = () => {
-    active.value = !active.value
+    state.active = !state.active
   }
 
-  return { active, toggle }
+  // const toggle = () => {
+  //   active.value = !active.value
+  // }
+
+  return { ...toRefs(state), toggle }
 }

@@ -12,7 +12,7 @@
       <div
         v-if="active"
         class="w-screen h-screen fixed left-0 top-0 cursor-pointer bg-backdrop"
-        @click="closeSidebar"
+        @click="toggle"
       />
     </slot>
     <transition name="slide">
@@ -31,7 +31,7 @@ import { useToggle } from '~/composables'
 
 export default defineComponent({
   setup () {
-    const { active, toggle } = useToggle()
+    const { toggle, active } = useToggle()
 
     function closeSidebar () {
       active.value = false
