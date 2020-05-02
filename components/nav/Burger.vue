@@ -4,15 +4,12 @@
   </button>
 </template>
 <script>
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
+import { useToggle } from '~/composables'
 
 export default defineComponent({
   setup () {
-    const active = ref(false)
-
-    function toggle () {
-      active.value = !active.value
-    }
+    const { active, toggle } = useToggle()
 
     return {
       active,
