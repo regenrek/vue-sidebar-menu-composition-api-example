@@ -4,7 +4,7 @@
       <div
         v-if="active"
         class="w-screen h-screen fixed left-0 top-0 cursor-pointer bg-backdrop"
-        @click="toggle"
+        @click="closeSidebar"
       />
     </slot>
     <transition name="slide">
@@ -28,7 +28,7 @@ export default defineComponent({
       active.value = !active.value
     }
 
-    function closeSidebar (e) {
+    function closeSidebar () {
       active.value = false
     }
 
