@@ -24,6 +24,9 @@ export default {
   */
   css: [
   ],
+
+  plugins: ['@/plugins/composition-api.js'],
+
   /*
   ** Plugins to load before mounting the App
   */
@@ -33,8 +36,7 @@ export default {
   buildModules: [
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
-    'nuxt-composition-api'
+    '@nuxtjs/tailwindcss'
   ],
   /*
   ** Nuxt.js modules
