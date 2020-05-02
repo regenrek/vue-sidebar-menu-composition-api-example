@@ -5,7 +5,7 @@
 </template>
 <script>
 import { defineComponent } from '@vue/composition-api'
-import { useToggle } from '~/composables'
+import useToggle from '~/composables/toggle'
 
 export default defineComponent({
   setup () {
