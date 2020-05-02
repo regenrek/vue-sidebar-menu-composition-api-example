@@ -1,5 +1,5 @@
 <template>
-  <button type="button" class="relative block z-999 border-0 cursor-pointer focus:outline-none" title="Menu" @click.prevent="toggle">
+  <button type="button" :class="{'active': active}" class="relative block z-999 border-0 cursor-pointer focus:outline-none" @click.prevent="toggle">
     {{ !active ? 'Click me 👍' : 'Close me ❌' }}
   </button>
 </template>
