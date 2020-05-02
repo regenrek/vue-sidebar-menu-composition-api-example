@@ -1,55 +1,44 @@
 <template>
-  <div class="sidebar">
-    <div @click="closeSidebarPanel">
-      <slot name="backdrop">
-        <div
-          v-if="isPanelOpen"
-          class="w-screen h-screen fixed left-0 top-0 cursor-pointer bg-backdrop"
-        />
-      </slot>
-      <transition name="slide">
-        <div
-          v-if="isPanelOpen"
-          class="sidebar-panel"
-        >
-          <slot />
-        </div>
-      </transition>
-
-      <div>isVisible: {{ active }}</div>
-    </div>
+  <div>
+    <slot name="backdrop">
+      <div
+        v-if="active"
+        class="w-screen h-screen fixed left-0 top-0 cursor-pointer bg-backdrop"
+        @click="toggle"
+      />
+    </slot>
+    <transition name="slide">
+      <div
+        v-if="active"
+        class="h-screen fixed overflow-y-auto bg-Cviolet left-0 top-0 z-999 w-300 px-12"
+      >
+        <slot />
+      </div>
+    </transition>
   </div>
 </template>
 <script>
 import { defineComponent, ref } from '@vue/composition-api'
-import { useToggle } from '~/composables'
 
 export default defineComponent({
   setup () {
-    const { active, toggle } = useToggle()
-    const isPanelOpen = ref(false)
-    const closeSidebarPanel = () => {
+    const active = ref(true)
 
+    function toggle () {
+      active.value = !active.value
     }
+
+    function closeSidebar (e) {
+      active.value = false
+    }
+
     return {
       active,
       toggle,
-      isPanelOpen,
-      closeSidebarPanel
+      closeSidebar
     }
   }
 })
-
-// export default {
-//   computed: {
-//     isPanelOpen () {
-//       return true
-//     }
-//   },
-//   methods: {
-//     closeSidebarPanel: () => {}
-//   }
-// }
 </script>
 <style>
 .slide-enter-active,
@@ -62,17 +51,5 @@ export default defineComponent({
 .slide-leave-to {
     transform: translateX(-100%);
     transition: all 150ms ease-in 0s
-}
-
-.sidebar-panel {
-    overflow-y: auto;
-    background-color: #130f40;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    z-index: 999;
-    padding: 3rem 20px 2rem 20px;
-    width: 300px;
 }
 </style>

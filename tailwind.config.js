@@ -9,10 +9,16 @@ module.exports = {
     extend: {
       colors: {
         backdrop: 'rgba(19, 15, 64, .4)',
-        mjgray: '#ececec'
+        Cgreen: '#7ebdb4',
+        Cbeige1: '#f6d198',
+        Cbeige2: '#f4a548',
+        Cviolet: '#862a5c'
       },
       zIndex: {
         999: '999'
+      },
+      width: {
+        300: '300px'
       }
     }
   },

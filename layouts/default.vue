@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-mjgray">
+  <div class="bg-Cbeige1">
     <Nav />
     <Sidebar />
     <nuxt />
